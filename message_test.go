@@ -40,13 +40,13 @@ func TestMessage(t *testing.T) {
 	// Create the various types of messages to test.
 
 	// MsgVersion.
-	addrYou := &net.TCPAddr{IP: net.ParseIP("192.168.0.1"), Port: 8333}
+	addrYou := &net.TCPAddr{IP: net.ParseIP("192.168.0.1"), Port: 28333}
 	you, err := btcwire.NewNetAddress(addrYou, btcwire.SFNodeNetwork)
 	if err != nil {
 		t.Errorf("NewNetAddress: %v", err)
 	}
 	you.Timestamp = time.Time{} // Version message has zero value timestamp.
-	addrMe := &net.TCPAddr{IP: net.ParseIP("127.0.0.1"), Port: 8333}
+	addrMe := &net.TCPAddr{IP: net.ParseIP("127.0.0.1"), Port: 28333}
 	me, err := btcwire.NewNetAddress(addrMe, btcwire.SFNodeNetwork)
 	if err != nil {
 		t.Errorf("NewNetAddress: %v", err)

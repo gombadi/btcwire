@@ -39,7 +39,7 @@ func TestAddr(t *testing.T) {
 	}
 
 	// Ensure NetAddresses are added properly.
-	tcpAddr := &net.TCPAddr{IP: net.ParseIP("127.0.0.1"), Port: 8333}
+	tcpAddr := &net.TCPAddr{IP: net.ParseIP("127.0.0.1"), Port: 28333}
 	na, err := btcwire.NewNetAddress(tcpAddr, btcwire.SFNodeNetwork)
 	if err != nil {
 		t.Errorf("NewNetAddress: %v", err)
@@ -111,7 +111,7 @@ func TestAddrWire(t *testing.T) {
 		Timestamp: time.Unix(0x495fab29, 0), // 2009-01-03 12:15:05 -0600 CST
 		Services:  btcwire.SFNodeNetwork,
 		IP:        net.ParseIP("127.0.0.1"),
-		Port:      8333,
+		Port:      28333,
 	}
 	na2 := &btcwire.NetAddress{
 		Timestamp: time.Unix(0x495fab29, 0), // 2009-01-03 12:15:05 -0600 CST
@@ -135,7 +135,7 @@ func TestAddrWire(t *testing.T) {
 		0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, // SFNodeNetwork
 		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
 		0x00, 0x00, 0xff, 0xff, 0x7f, 0x00, 0x00, 0x01, // IP 127.0.0.1
-		0x20, 0x8d, // Port 8333 in big-endian
+		0x20, 0x8d, // Port 28333 in big-endian
 		0x29, 0xab, 0x5f, 0x49, // Timestamp
 		0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, // SFNodeNetwork
 		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
@@ -218,7 +218,7 @@ func TestAddrWireErrors(t *testing.T) {
 		Timestamp: time.Unix(0x495fab29, 0), // 2009-01-03 12:15:05 -0600 CST
 		Services:  btcwire.SFNodeNetwork,
 		IP:        net.ParseIP("127.0.0.1"),
-		Port:      8333,
+		Port:      28333,
 	}
 	na2 := &btcwire.NetAddress{
 		Timestamp: time.Unix(0x495fab29, 0), // 2009-01-03 12:15:05 -0600 CST
@@ -236,7 +236,7 @@ func TestAddrWireErrors(t *testing.T) {
 		0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, // SFNodeNetwork
 		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
 		0x00, 0x00, 0xff, 0xff, 0x7f, 0x00, 0x00, 0x01, // IP 127.0.0.1
-		0x20, 0x8d, // Port 8333 in big-endian
+		0x20, 0x8d, // Port 28333 in big-endian
 		0x29, 0xab, 0x5f, 0x49, // Timestamp
 		0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, // SFNodeNetwork
 		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
